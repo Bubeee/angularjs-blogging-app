@@ -1,9 +1,7 @@
 export default class HomeController {
-    constructor() {
-      this.name = 'World';
-    }
-  
-    changeName() {
-      this.name = 'angular-tips';
-    }
+  constructor(articles) {
+    this.articles = articles.data;
   }
+}
+
+HomeController.$inject = ['articles'];

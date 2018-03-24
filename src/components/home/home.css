@@ -1,0 +1,10 @@
+.home__item-container{
+  border: 1px solid lightblue;
+  margin: 10px;
+  padding: 10px;
+}
+
+.home__button{
+  margin: 10px;
+  padding: 10px;
+}

@@ -1,5 +1,13 @@
 <div class="jumbotron">
-  <h1>Hello, {{home.name}}</h1>
-</div>
+  <div class="home__container">
+    <a class="btn btn-success home__button" ui-sref="article">Add Article</a>
 
-<button class="btn btn-primary" ng-click="home.changeName()">Change</button>
+    <div ng-repeat="article in home.articles" class="home__item-container">
+      <h3>{{article.title}}</h3>
+      <p>{{article.content}}</p>
+
+      <a class="btn btn-success home__button" ui-sref="articleEdit({id: article.id, article: article})">Edit Article</a>
+    </div>
+
+  </div>
+</div>
