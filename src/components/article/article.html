@@ -1,11 +1,24 @@
 <div class="post-form__container">
-  <form>
+  <form name="artcl" ng-submit="article.add()">
     <label class="post-form__label" htmlFor="title">Title</label>
     <input class="post-form__input" name="title" type="text" placeholder="Enter the title"
-      ng-model="article.article.title" />
+      ng-model="article.article.title" required="" />
+
+    <div class="text-danger" ng-show="artcl.$submitted || artcl.title.$touched">
+      <div ng-show="artcl.title.$error.required">Title is required.</div>
+    </div>
+
     <label class="post-form__label" htmlFor="content">Content</label>
     <textarea class="post-form__textarea" name="content" placeholder="Enter the content"
-      ng-model="article.article.content"></textarea>
-    <input class="post-form__submit" type="submit" value="Add" />
+      ng-model="article.article.content" required="" article-validation="bad,greedy"></textarea>
+
+    <div class="text-danger" ng-show="artcl.$submitted || artcl.content.$touched">
+      <div ng-show="artcl.content.$error.required">Content is required.</div>
+    </div>
+
+    <span ng-show="artcl.content.$error.blacklist">
+        The phrase "{{article.article.content}}" is blacklisted</span>
+
+    <input class="post-form__submit" type="submit" value="Submit" />
   </form>
 </div>

@@ -1,13 +1,21 @@
 export default class ArticleController {
-  constructor(articles, $stateParams) {
+  constructor(articles, $stateParams, $location) {
+    this.location = $location;
+
+    this.isEditMode = !!$stateParams.id;
     this.articles = articles.data;
-    debugger;
     this.article = $stateParams.article;
   }
 
-  add(data){
-    debugger;
+  add() {
+    if (this.isEditMode) {
+    } else {
+      this.article.id = 9087631;
+      this.articles.push(this.article);
+    }
+
+    this.location.path("home");
   }
 }
 
-ArticleController.$inject = ['articles', '$stateParams'];
+ArticleController.$inject = ['articles', '$stateParams', '$location'];

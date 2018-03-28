@@ -19,8 +19,8 @@
   "homepage": "https://github.com/Bubeee/angularjs-blogging-app#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "angular-ui-bootstrap": "^2.5.6",
     "angular-ui-router": "^1.0.3",
-    "angular-webpack-plugin": "0.0.3",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",

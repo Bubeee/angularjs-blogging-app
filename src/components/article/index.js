@@ -8,7 +8,9 @@ import ArticleController from './article.controller';
 
 import articles from '../../services/articles.service';
 
-export default angular.module('app.article', [uirouter, articles])
+import articleValidation from '../../directives/article.validation.directive';
+
+export default angular
+  .module('app.article', [uirouter, articles, articleValidation])
   .config(routing)
-  .controller('ArticleController', ArticleController)
-  .name;
+  .controller('ArticleController', ArticleController).name;
