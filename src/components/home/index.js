@@ -8,8 +8,9 @@ import routing from './home.routes';
 import HomeController from './home.controller';
 
 import articles from '../../services/articles.service';
+import pager from '../../services/pager.service';
 
-export default angular.module('app.home', [uirouter, articles, 'ui.bootstrap'])
+export default angular.module('app.home', [uirouter, articles, pager, 'ui.bootstrap'])
   .config(routing)
   .controller('HomeController', HomeController)
   .name;

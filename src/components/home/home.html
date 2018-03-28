@@ -2,16 +2,33 @@
   <div class="home__container">
     <a class="btn btn-success home__button" ui-sref="article">Add Article</a>
 
-    <div ng-repeat="article in home.articles" class="home__item-container">
+    <div ng-repeat="article in home.items" class="home__item-container">
       <h3>{{article.title}}</h3>
       <p>{{article.content}}</p>
 
       <a class="btn btn-success home__button" ui-sref="articleEdit({id: article.id, article: article})">Edit Article</a>
     </div>
 
+    <!-- pager -->
+    <ul ng-if="home.pager.pages.length" class="pagination">
+      <li class="page-item" ng-class="{disabled:home.pager.currentPage === 1}">
+        <a class="page-link" ng-click="home.setPage(1)">First</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:home.pager.currentPage === 1}">
+        <a class="page-link" ng-click="home.setPage(home.pager.currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" ng-repeat="page in home.pager.pages" ng-class="{active:home.pager.currentPage === page}">
+        <a class="page-link" ng-click="home.setPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:home.pager.currentPage === home.pager.totalPages}">
+        <a class="page-link" ng-click="home.setPage(home.pager.currentPage + 1)">Next</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:home.pager.currentPage === home.pager.totalPages}">
+        <a class="page-link" ng-click="home.setPage(home.pager.totalPages)">Last</a>
+      </li>
+    </ul>
 
-    
-<!-- 
+    <!-- 
     <pagination ng-model="home.currentPage" total-items="home.articles.length" max-size="home.maxSize"
       boundary-links="true">
     </pagination> -->
